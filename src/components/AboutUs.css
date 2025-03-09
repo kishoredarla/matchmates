@@ -1,0 +1,95 @@
+.about-us {
+    font-family: 'Arial', sans-serif;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+  }
+  
+  h3 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .intro, .mission, .vision, .contact-us {
+    margin-bottom: 40px;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .team-member {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h4 {
+    font-size: 1.5rem;
+    color: #4CAF50;
+  }
+  
+  .team-member p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .contact-us button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-us button:hover {
+    background-color: #45a049;
+  }
+  
+  .mission, .vision {
+    background: linear-gradient(145deg, #ff5f6d, #ffc371);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .mission p, .vision p {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .team {
+      flex-direction: column;
+    }
+  
+    .team-member {
+      margin-bottom: 20px;
+    }
+  }
+  
