@@ -1,29 +1,54 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
-import CreatePost from './components/CreatePost';  // Import CreatePost
-import './App.css';
 import PostFeed from './components/PostFeed';
 import Footer from './components/Footer';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import './App.css';
+
+// Create a separate component for the routes to access auth context
+const AppRoutes = () => {
+  const { isAuthenticated } = useAuth();
+
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/postfeed" element={<PostFeed />} />
+      
+      {/* Auth Routes */}
+      <Route 
+        path="/login" 
+        element={isAuthenticated ? <Navigate to="/" /> : <Login />} 
+      />
+      <Route 
+        path="/register" 
+        element={isAuthenticated ? <Navigate to="/" /> : <Register />} 
+      />
+      
+      {/* Protected Routes would go here */}
+    </Routes>
+  );
+};
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/create-post" element={<CreatePost />} />
-          <Route path="/postfeed" element={<PostFeed />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <div className="content">
+          <AppRoutes />
+        </div>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 };
 
