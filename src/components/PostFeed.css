@@ -1,34 +1,85 @@
+
+body {
+  background-color: var(--bg-color);
+}
+
 .post-feed {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-  }
-  
-  .post-feed h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .post-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .post-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .post-card p {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.post-feed h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.post-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.post-card h3 {
+  color: var(--secondary-color);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.post-card strong {
+  color: #555;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 30px auto;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.connect-btn {
+  margin-top: 15px;
+  padding: 10px 16px;
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.connect-btn:hover {
+  background-color: #355b84;
+}

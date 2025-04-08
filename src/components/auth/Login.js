@@ -39,8 +39,8 @@ const Login = () => {
       );
 
       if (response.data.token) {
-        login(response.data.token); // Save token using context
-        navigate('/'); // Redirect to home page
+        login(response.data.token,response.data.results[0].user_id); // Save token using context
+        navigate('/postfeed'); // Redirect to home page
       } else {
         throw new Error('No token received');
       }

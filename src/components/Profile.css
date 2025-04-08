@@ -1,0 +1,64 @@
+.profile-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  
+  .profile-container h2 {
+    text-align: center;
+    color: #4a6fa5;
+    margin-bottom: 20px;
+  }
+  
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .profile-group label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+    color: #444;
+  }
+  
+  .profile-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #4a6fa5;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  button:hover {
+    background-color: #3a5981;
+  }
+  
+  .delete-btn {
+    background-color: #e63946;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .profile-message {
+    background-color: #e7f3ff;
+    padding: 10px;
+    border-left: 4px solid #4a6fa5;
+    margin-bottom: 15px;
+  }
+  

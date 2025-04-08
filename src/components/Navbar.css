@@ -1,6 +1,6 @@
 :root {
   --primary-color: #333;
-  --text-color: white;
+  /* --text-color: white; */
   --active-color: #4CAF50;
   --hover-color: #555;
   --logout-hover: #d32f2f;
@@ -57,7 +57,25 @@
 }
 
 .nav-links li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+
+.nav-links li button.logout-button {
+  width: auto;
+  text-align: center;
+}
+
+.nav-links li button.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0;
+  text-align: center;
 }
 
 .nav-links li a, 
@@ -143,5 +161,12 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-links li button.logout-button {
+    width: auto;
+    text-align: center;
   }
 }
