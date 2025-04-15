@@ -29,25 +29,28 @@ const Login = () => {
     try {
       const response = await axios.post(
         'http://localhost:7002/matchmates/autenticate/login',
-        JSON.stringify(formData),
+        formData,
         {
           headers: {
             'Content-Type': 'application/json'
           },
-          withCredentials: false // Set to true if using cookies
+          withCredentials: false // Set to true if you plan to use cookies
         }
       );
 
       if (response.data.token) {
-        login(response.data.token,response.data.results[0].user_id); // Save token using context
-        navigate('/postfeed'); // Redirect to home page
+        // Save token and user_id via your AuthContext login method
+        login(response.data.token, response.data.results[0].user_id);
+        navigate('/postfeed');
       } else {
         throw new Error('No token received');
       }
     } catch (error) {
-      setError(error.response?.data?.message || 
-               error.message || 
-               'Login failed. Please try again.');
+      setError(
+        error.response?.data?.message ||
+        error.message ||
+        'Login failed. Please try again.'
+      );
     } finally {
       setIsLoading(false);
     }

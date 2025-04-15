@@ -12,6 +12,7 @@ const Navbar = () => {
     ? [
         { path: '/postfeed', label: 'Hobbies' },
         { path: '/share-activity', label: 'Share Activity' },
+        { path: '/myactivities', label: 'My Activities' },
       ]
     : [
         { path: '/', label: 'Home' },

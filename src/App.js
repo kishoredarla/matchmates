@@ -12,6 +12,7 @@ import Register from './components/auth/Register';
 import './App.css';
 import ShareActivity from './components/ShareActivity';
 import Profile from './components/Profile';
+import MyActivities from './components/MyActivities';
 
 // Create a separate component for the routes to access auth context
 const AppRoutes = () => {
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       <Route path="/postfeed" element={<PostFeed />} />
       <Route path="/share-activity" element={<ShareActivity />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/myactivities" element={<MyActivities />} />
 
       
       {/* Auth Routes */}
@@ -38,7 +40,7 @@ const AppRoutes = () => {
         element={isAuthenticated ? <Navigate to="/login" /> : <Register />} 
       />
       
-      {/* Protected Routes would go here */}
+      
     </Routes>
   );
 };
