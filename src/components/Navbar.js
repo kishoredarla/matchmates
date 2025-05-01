@@ -8,19 +8,23 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = isAuthenticated
-    ? [
-        { path: '/postfeed', label: 'Hobbies' },
-        { path: '/share-activity', label: 'Share Activity' },
-        { path: '/myactivities', label: 'My Activities' },
-      ]
-    : [
-        { path: '/', label: 'Home' },
-        // { path: '/postfeed', label: 'Hobbies' },
-        { path: '/about', label: 'About Us' },
-        { path: '/contact', label: 'Contact' },
-        // { path: '/create-post', label: 'Create Post' },
-      ];
+  const publicNavItems = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/contact', label: 'Contact' },
+  ];
+
+  const privateNavItems = [
+    { path: '/postfeed', label: 'Hobbies' },
+    { path: '/share-activity', label: 'Share Activity' },
+    { path: '/myactivities', label: 'My Activities' },
+    { path: '/post-event', label: 'Post Event' },
+    { path: '/events', label: 'Events' },
+    { path: '/my-events', label: 'My Events' },
+    { path: '/event-requests', label: 'Event Requests' },
+  ];
+
+  const navItems = isAuthenticated ? privateNavItems : publicNavItems;
 
   const handleLogout = () => {
     logout();
@@ -50,13 +54,13 @@ const Navbar = () => {
       </button>
 
       <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-        {navItems.map((item) => (
-          <li key={item.path} onClick={() => setIsMobileMenuOpen(false)}>
+        {navItems.map(({ path, label }) => (
+          <li key={path} onClick={() => setIsMobileMenuOpen(false)}>
             <NavLink
-              to={item.path}
+              to={path}
               className={({ isActive }) => (isActive ? 'active' : '')}
             >
-              {item.label}
+              {label}
             </NavLink>
           </li>
         ))}

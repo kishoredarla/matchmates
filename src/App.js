@@ -6,15 +6,18 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import PostFeed from './components/PostFeed';
-import Footer from './components/Footer';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import './App.css';
 import ShareActivity from './components/ShareActivity';
 import Profile from './components/Profile';
 import MyActivities from './components/MyActivities';
+import PostEvent from './components/PostEvent';
+import EventFeed from './components/EventFeed';
+import MyEvents from './components/MyEvents';
+import EventRequests from './components/EventRequests';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Footer from './components/Footer';
+import './App.css';
 
-// Create a separate component for the routes to access auth context
 const AppRoutes = () => {
   const { isAuthenticated } = useAuth();
 
@@ -26,37 +29,40 @@ const AppRoutes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/postfeed" element={<PostFeed />} />
       <Route path="/share-activity" element={<ShareActivity />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/myactivities" element={<MyActivities />} />
+      
+      {/* Event Routes */}
+      <Route path="/post-event" element={isAuthenticated ? <PostEvent /> : <Navigate to="/login" />} />
+      <Route path="/events" element={<EventFeed />} />
+      <Route path="/my-events" element={isAuthenticated ? <MyEvents /> : <Navigate to="/login" />} />
+      <Route path="/event-requests" element={isAuthenticated ? <EventRequests /> : <Navigate to="/login" />} />
 
-      
+      {/* Profile & Activities */}
+      <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
+      <Route path="/myactivities" element={isAuthenticated ? <MyActivities /> : <Navigate to="/login" />} />
+
       {/* Auth Routes */}
-      <Route 
-        path="/login" 
-        element={isAuthenticated ? <Navigate to="/postfeed" /> : <Login />} 
+      <Route
+        path="/login"
+        element={isAuthenticated ? <Navigate to="/postfeed" /> : <Login />}
       />
-      <Route 
-        path="/register" 
-        element={isAuthenticated ? <Navigate to="/login" /> : <Register />} 
+      <Route
+        path="/register"
+        element={isAuthenticated ? <Navigate to="/postfeed" /> : <Register />}
       />
-      
-      
     </Routes>
   );
 };
 
-const App = () => {
-  return (
-    <AuthProvider>
-      <Router>
-        <Navbar />
-        <div className="content">
-          <AppRoutes />
-        </div>
-        <Footer />
-      </Router>
-    </AuthProvider>
-  );
-};
+const App = () => (
+  <AuthProvider>
+    <Router>
+      <Navbar />
+      <div className="content">
+        <AppRoutes />
+      </div>
+      <Footer />
+    </Router>
+  </AuthProvider>
+);
 
 export default App;

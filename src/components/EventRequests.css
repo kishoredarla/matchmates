@@ -1,0 +1,33 @@
+.event-requests {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  .event-requests h2 {
+    text-align: center;
+    color: #4a6fa5;
+    margin-bottom: 1rem;
+  }
+  .event-requests .card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+  }
+  .event-requests .card p {
+    margin: 5px 0;
+  }
+  .event-requests .card button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    background: #4a6fa5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .event-requests .card button:hover {
+    background: #166088;
+  }
+  
